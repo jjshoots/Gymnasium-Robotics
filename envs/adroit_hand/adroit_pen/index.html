@@ -343,7 +343,7 @@ The target is also randomized to cover all configurations. The task will be cons
 </section>
 <section id="action-space">
 <h2>Action Space<a class="headerlink" href="#action-space" title="Permalink to this heading">#</a></h2>
-<p>The action space is a <code class="docutils literal notranslate"><span class="pre">Box(-1.0,</span> <span class="pre">1.0,</span> <span class="pre">(24,),</span> <span class="pre">float32)</span></code>. The control actions are absolute angular positions of the Adroit hand joints. The input of the control actions is set to a range between -1 and 1 by scaling the real actuator angle ranges in radians.
+<p>The action space is a Box(-1.0, 1.0, (24,), float32)`. The control actions are absolute angular positions of the Adroit hand joints. The input of the control actions is set to a range between -1 and 1 by scaling the real actuator angle ranges in radians.
 The elements of the action array are the following:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -1043,12 +1043,7 @@ distance less than <code class="docutils literal notranslate"><span class="pre">
 <li><p><code class="docutils literal notranslate"><span class="pre">dropping_pen</span></code>: If the pen drops from the hand (pen’s height less than <code class="docutils literal notranslate"><span class="pre">0.075</span></code>) add a negative reward of <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">sparse</span></code> reward variant of the environment can be initialized by calling <code class="docutils literal notranslate"><span class="pre">gym.make('AdroitHandPenSparse-v1')</span></code>.
-In this variant, the environment returns the following <code class="docutils literal notranslate"><span class="pre">sparse</span></code> reward function that consists of the following parts:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dropping_pen</span></code>: If the pen drops from the hand (pen’s height less than <code class="docutils literal notranslate"><span class="pre">0.075</span></code>) add a negative reward of <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">close_to_target</span></code>: bonus reward for the pen being close to the target orientation. If the dot product between both ortientations is greater than <code class="docutils literal notranslate"><span class="pre">0.9</span></code> and the Euclidean
-distance less than <code class="docutils literal notranslate"><span class="pre">0.075</span></code> add a <code class="docutils literal notranslate"><span class="pre">10</span></code> reward, if the same distance holds and the orientation dot product is greater than <code class="docutils literal notranslate"><span class="pre">0.95</span></code> add <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p></li>
-</ul>
+In this variant, the environment returns a reward of 1 for environment success and 0 otherwise.</p>
 </section>
 <section id="starting-state">
 <h2>Starting State<a class="headerlink" href="#starting-state" title="Permalink to this heading">#</a></h2>
